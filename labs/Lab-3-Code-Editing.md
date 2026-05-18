@@ -47,7 +47,7 @@ Before we dive into code generation, let's understand the different ways you can
 
 - **Agent Mode**: Use for all code modifications — from targeted, focused changes to complex multi-file features. Agent mode autonomously plans and executes changes across your workspace. You can be as specific or as broad as you like: give it a single file to modify or let it explore your entire codebase.
 
-> **Note**: In this lab, you'll practice with **Plan mode** and **Agent mode** to understand when to use each. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 9) which works autonomously on GitHub issues.
+> **Note**: In this lab, you'll practice with **Plan mode** and **Agent mode** to understand when to use each. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 8) which works autonomously on GitHub issues.
 
 ## 📝 Step 1: Using Agent Mode for Targeted Code Changes
 

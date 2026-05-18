@@ -1,4 +1,4 @@
-# Exercise 9 - GitHub Copilot Cloud Agent
+# Exercise 8 - GitHub Copilot Cloud Agent
 
 #### Duration: 60 minutes
 
@@ -307,6 +307,131 @@ so that the gallery loads faster and is easier to navigate.
 ## 📝 Step 1: Assign Your First Task to Cloud Agent
 
 Let's start by delegating a single well-defined task to Cloud Agent. You'll create an issue, assign it to @copilot, and briefly observe how it starts working.
+
+### Step 1.1: Create the Photo Favorites Issue
+
+Before your first delegation, create the issue you'll use later in this lab.
+
+1. **Navigate to Issues:**
+   - Go to the **Issues** tab in your GitHub repository
+   - Click **"New Issue"** button
+
+2. **Create the issue using the template below:**
+
+   **Title**: `Add photo favorites system with heart icon`
+
+   **Description**:
+   ```markdown
+   ## User Story
+   As a user, I want to favorite photos so I can quickly access my preferred images in the gallery.
+
+   ## Requirements
+
+   ### Data Structure Changes
+   - [ ] Add `isFavorite` field to Photo interface (boolean, default false)
+   - [ ] Add `favoriteCount` field to Photo interface (number, default 0)
+   - [ ] Update mock data in `src/lib/mock-photo-data.ts` to include these fields
+   - [ ] Ensure all existing photos default to `isFavorite: false` and `favoriteCount: 0`
+
+   ### Component Changes
+   - [ ] Create `FavoriteButton.tsx` component:
+     - Accept `photoId`, `isFavorite`, and `onToggle` props
+     - Display heart icon (filled when favorited, outline when not)
+     - Show favorite count next to icon
+     - Handle click event to toggle favorite status
+     - Add smooth animation on toggle (scale/color transition)
+     - Use Lucide React icons (`Heart` and `HeartOff`)
+   - [ ] Update `PhotoCard.tsx` component:
+     - Add FavoriteButton in top-right corner of photo card
+     - Position absolutely over photo with proper z-index
+     - Add semi-transparent background for visibility
+     - Connect to favorite toggle functionality
+   - [ ] Update `GalleryGrid.tsx` component:
+     - Add state management for favorites using useState
+     - Implement `handleFavoriteToggle` function:
+       - Updates photo's `isFavorite` status
+       - Increments/decrements `favoriteCount`
+       - Updates local state (note: not persisted in this mock app)
+     - Pass toggle handler to PhotoCard components
+   - [ ] Add filter option to view only favorites:
+     - Add "Show Favorites Only" toggle button above gallery grid
+     - Filter displayed photos based on `isFavorite` status
+     - Display count of favorited photos
+
+   ### Styling
+   - [ ] Heart icon colors:
+     - Unfavorited: gray outline (`text-gray-400 dark:text-gray-500`)
+     - Favorited: red filled (`text-red-500 dark:text-red-400`)
+     - Hover effect with color transition
+   - [ ] Button styling:
+     - Semi-transparent background: `bg-white/80 dark:bg-slate-800/80`
+     - Rounded corners and subtle shadow
+     - Backdrop blur for modern look
+   - [ ] Animation on favorite toggle:
+     - Use Framer Motion for scale animation (1 → 1.2 → 1)
+     - Smooth color transition (0.2s duration)
+   - [ ] Ensure mobile-responsive design
+   - [ ] Match existing PixelPerfect Gallery theme and dark mode support
+
+   ### Testing Considerations
+   - [ ] Verify favorite toggle updates UI immediately
+   - [ ] Verify favorite count increments/decrements correctly
+   - [ ] Test filter shows only favorited photos
+   - [ ] Test dark mode styling for all components
+   - [ ] Verify animations work smoothly
+   - [ ] Test mobile responsiveness
+   - [ ] Ensure icons are accessible with proper aria-labels
+
+   ## Acceptance Criteria
+   - [ ] Photo interface includes favorite-related fields
+   - [ ] FavoriteButton component renders correctly with heart icon
+   - [ ] Clicking heart icon toggles favorite status with animation
+   - [ ] Favorite count displays and updates correctly
+   - [ ] Filter option shows only favorited photos
+   - [ ] Styling matches PixelPerfect Gallery design system
+   - [ ] Dark mode works correctly for all new components
+   - [ ] Mobile-responsive design works on all screen sizes
+   - [ ] All TypeScript types are properly defined
+   - [ ] Code follows Next.js 15 and React best practices
+
+   ## Technical Notes
+   - Use TypeScript for all new components with proper type definitions
+   - Follow the existing component barrel pattern (export from `src/components/ui/index.ts`)
+   - Mark components with `'use client'` only if they use state or interactivity
+   - Use Framer Motion for animations (already installed)
+   - Use Lucide React for icons (already installed)
+   - Follow existing Tailwind CSS patterns from `globals.css`
+   - This is a mock app - favorites won't persist on refresh (local state only)
+
+   ## Examples
+
+   **Example 1: First favorite**
+   - Current: isFavorite = false, favoriteCount = 0
+   - User clicks heart
+   - Result: isFavorite = true, favoriteCount = 1
+
+   **Example 2: Unfavorite**
+   - Current: isFavorite = true, favoriteCount = 5
+   - User clicks heart
+   - Result: isFavorite = false, favoriteCount = 4
+
+   **Example 3: Filtering favorites**
+   - Gallery has 9 photos, 3 are favorited
+   - User clicks "Show Favorites Only"
+   - Result: Only 3 favorited photos display in grid
+   ```
+
+3. **Create the issue** by clicking "Submit new issue"
+
+4. **Note the issue number** — you'll assign it to @copilot in Step 5.
+
+> [!NOTE]
+> **Do not assign this issue to @copilot yet!** You'll do that in Step 5 when you run multiple tasks in parallel. For now, just create the issue and leave it unassigned.
+
+### ✅ Success Criteria
+- [ ] Issue created in your repository with the title "Add photo favorites system with heart icon"
+- [ ] Issue description includes all sections: User Story, Requirements, Acceptance Criteria, Technical Notes, and Examples
+- [ ] Issue is left unassigned (you'll assign it to @copilot in Step 5)
 
 ### Instructions:
 
@@ -759,46 +884,16 @@ As a user, I want to click on a photo to see full details in a modal popup, so I
 
 ### Task 2: Photo Favorites Toggle
 
-Create another new issue:
+Assign the photo favorites issue you created in Step 1.1 to Cloud Agent:
 
-**Title**: `Add favorites functionality to gallery`
+1. **Navigate to Issues** in your GitHub repository.
+2. **Open** the "Add photo favorites system with heart icon" issue.
+3. **Assign to @copilot:**
+   - In the issue sidebar, under **"Assignees"**, click the dropdown and select **"Copilot"**
+   - Verify the target repository is correct and the base branch is `main`
+   - Click **"Assign"**
 
-**Description**:
-```markdown
-## User Story
-As a user, I want to mark photos as favorites so I can easily find my preferred images later.
-
-## Requirements
-
-### Frontend Changes
-- [ ] Add heart icon to each photo card
-- [ ] Toggle favorite state on click (filled/empty heart)
-- [ ] Store favorites in browser localStorage
-- [ ] Show favorites count indicator
-- [ ] Add "Show Favorites Only" filter toggle
-- [ ] Persist favorites across page reloads
-- [ ] Smooth heart animation on toggle
-- [ ] Style to match existing design system
-
-### Technical Approach
-- Use localStorage for persistence
-- Add state management for favorites
-- Handle favorite toggle in PhotoCard component
-- Add filter logic to gallery page
-- Ensure type safety with TypeScript
-- Add smooth transitions/animations
-
-## Acceptance Criteria
-- [ ] Heart icon appears on each photo
-- [ ] Click toggles favorite state visually
-- [ ] Favorites persist after page reload
-- [ ] "Show Favorites" filter works correctly
-- [ ] Smooth animations on toggle
-- [ ] Mobile responsive
-- [ ] Matches existing design system
-```
-
-**Assign to @copilot** immediately after creating!
+**Assign to @copilot** immediately after assigning Task 1!
 
 ### 🎯 What You Now Have Running
 
@@ -1280,15 +1375,11 @@ Throughout this workshop, you've learned to:
 ✅ Create custom agents for specialized, autonomous development
 ✅ Share expert knowledge across your team
 
-**Lab 7 - Model Context Protocol**
-✅ Use Model Context Protocol
-✅ Connect Copilot to your development ecosystem
-
-**Lab 8 - Copilot Spaces**
+**Lab 7 - Copilot Spaces**
 ✅ Leverage Copilot Spaces
 ✅ Maintain focused context for different work types
 
-**Lab 9 - Cloud Agent**
+**Lab 8 - Cloud Agent**
 ✅ Work with the autonomous Cloud Agent
 ✅ Delegate complete features to AI
 ✅ **Experience parallel development** - 2-3x productivity gains
@@ -1316,7 +1407,6 @@ Remember where you started? PixelPerfect Gallery was a basic application. Throug
 GitHub Copilot capabilities are evolving rapidly:
 - More powerful models with better reasoning
 - Deeper integration with development tools
-- Expanded MCP connections to more services
 - Smarter agents with better context understanding
 - Team-wide learning from collective usage
 

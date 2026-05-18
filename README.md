@@ -29,9 +29,8 @@ All lab exercises are located in the [`labs/`](labs/) directory:
 | [Lab 4](labs/Lab-4-Engineering-Practices.md) | Engineering Practices & Copilot Instructions | 40 min | Debug Copilot's decisions, configure personal and repository instructions, switch models |
 | [Lab 5](labs/Lab-5-Prompt-Files.md) | Prompt Files | 20 min | Create and use prompt files for consistent, reusable AI interactions |
 | [Lab 6](labs/Lab-6-Custom-Agents.md) | Custom Agents | 20 min | Build custom agents for specialized, autonomous development workflows |
-| [Lab 7](labs/Lab-7-Model-Context-Protocol.md) | Model Context Protocol (MCP) | 15 min | Set up GitHub MCP for seamless IDE integration with external services |
-| [Lab 8](labs/Lab-8-Copilot-Spaces.md) | Copilot Spaces | 30 min | Create dedicated AI workspaces for focused, collaborative development and IDE integration |
-| [Lab 9](labs/Lab-9-Coding-Agent.md) | Cloud Agent | 60 min | Assign issues to Copilot for autonomous implementation and PR creation |
+| [Lab 7](labs/Lab-7-Copilot-Spaces.md) | Copilot Spaces | 30 min | Create dedicated AI workspaces for focused, collaborative development |
+| [Lab 8](labs/Lab-8-Coding-Agent.md) | Cloud Agent | 60 min | Assign issues to Copilot for autonomous implementation and PR creation |
 
 ## 🚀 Quick Start
 

@@ -9,7 +9,7 @@ This folder contains detailed reference documentation and informational material
 Comprehensive glossary of all GitHub Copilot terms, tools, and features covered in the workshop:
 
 - **Quick Reference**: Easy-to-search definitions for all Copilot terminology
-- **Organized by Category**: Core features, chat modes, customization, agents, spaces, MCP, and more
+- **Organized by Category**: Core features, chat modes, customization, agents, spaces, and more
 - **Comparison Tables**: Side-by-side comparisons of similar features
 - **Lab Cross-References**: Find which labs cover specific topics
 - **Usage Examples**: Practical context for when and how to use each feature

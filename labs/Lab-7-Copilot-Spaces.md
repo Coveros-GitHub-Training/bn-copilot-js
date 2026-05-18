@@ -1,4 +1,4 @@
-# Exercise 8 - GitHub Copilot Spaces
+# Exercise 7 - GitHub Copilot Spaces
 
 #### Duration: 30 minutes
 
@@ -9,7 +9,6 @@ By the end of this exercise, you will:
 - Create and configure multiple Copilot Spaces for different purposes
 - Set up Spaces with specific goals, instructions, and context
 - Complete development tasks using focused AI assistance in Spaces
-- Access and use Spaces from within your IDE via GitHub MCP
 
 ## 📸 Scenario: Collaborative Development at PixelPerfect Gallery
 
@@ -351,170 +350,6 @@ As you create more Spaces, organization becomes important.
    - Too much context can dilute focus
    - Update sources as the project evolves
 
-## 🔌 Step 4: Using Spaces from Your IDE with GitHub MCP
-
-Now that you've created and worked with Spaces in the browser, let's integrate them into your daily workflow by accessing them directly from VS Code using the GitHub MCP server you configured in Lab 7.
-
-### Why Use Spaces from Your IDE?
-
-Accessing Copilot Spaces through the GitHub MCP server in your IDE provides:
-- **Seamless Workflow**: No need to switch between browser and IDE
-- **Context Aware**: Combine Space context with your current code
-- **Faster Iteration**: Test and implement suggestions immediately
-- **Integrated Experience**: Use Space expertise while actively coding
-
-### Prerequisites:
-
-Ensure you completed Lab 7 and have the GitHub MCP server configured in VS Code. If not, refer back to [Lab 7 - Step 2](Lab-7-Model-Context-Protocol.md#step-2-installing-the-github-mcp-server) for setup instructions.
-
-### Step 4.1: Access Your Spaces via MCP
-
-1. **Open VS Code** with your PixelPerfect Gallery project
-
-2. **Open GitHub Copilot Chat** in VS Code
-
-3. **List your Copilot Spaces:**
-   
-   Create a prompt to list all of your Copilot Spaces.
-   
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Show me all my Copilot Spaces
-   ```
-   </details>
-
-4. **Review the list** - you should see both of your Spaces:
-   - Photo Gallery - Security Assessment
-   - Photo Gallery - Documentation Hub
-
-### Step 4.2: Use Space Context in Your IDE
-
-Now let's leverage your Spaces while working on code in VS Code.
-
-#### Exercise A: Security Analysis from IDE
-
-1. **Open the UploadZone component:**
-   ```
-   pixelperfect-gallery/src/components/upload/UploadZone.tsx
-   ```
-
-2. **In Copilot Chat, ask for security analysis using your Space context:**
-
-   Create a prompt in Ask mode that requests security analysis of the UploadZone component using your Security Assessment Space context. Your prompt should reference the Space by name and ask for specific improvements.
-
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Using my "Photo Gallery - Security Assessment" Space for reference, analyze the currently open UploadZone component for security vulnerabilities. What specific improvements should I make?
-   ```
-   </details>
-
-3. **Review the suggestions** - Copilot should provide security-focused analysis informed by the OWASP context and instructions from your Space
-
-4. **Ask follow-up questions** while staying in your Space context:
-   
-   Create a follow-up prompt asking for specific code recommendations based on the Security Assessment Space.
-   
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Based on the Security Assessment Space, what file type validation code should I add to this component?
-   ```
-   </details>
-
-#### Exercise B: Generate Documentation from IDE
-
-1. **Open the GalleryGrid component:**
-   ```
-   pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx
-   ```
-
-2. **Request documentation using your Documentation Hub Space:**
-
-   Create a prompt in Agent mode that requests JSDoc comments for the GalleryGrid component using your Documentation Hub Space. Your prompt should reference the Space by name and mention following the documentation template.
-
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Using my "Photo Gallery - Documentation Hub" Space, generate comprehensive JSDoc comments for this GalleryGrid component following the documentation template.
-   ```
-   </details>
-
-3. **Review and apply the documentation** - Notice how Copilot follows the documentation standards and templates from your Space
-
-4. **Generate additional documentation:**
-
-   Create a prompt in Ask mode requesting a usage example for the component, referencing the Documentation Hub Space context.
-
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Using the Documentation Hub Space context, create a usage example for this component with all its props explained.
-   ```
-   </details>
-
-### 💡 MCP + Spaces Best Practices:
-
-1. **Be Explicit**: Always mention which Space you want to use by name
-   ```
-   Using my "Space Name" Space, ...
-   ```
-
-2. **Combine Contexts**: Reference both the Space and current file
-   ```
-   Using my Security Space, analyze the current file for vulnerabilities
-   ```
-
-3. **Iterate Quickly**: Test suggestions immediately in your IDE
-   - Make changes
-   - Run the dev server
-   - Ask follow-up questions
-
-4. **Stay Focused**: Use the appropriate Space for each type of work
-   - Security reviews → Security Assessment Space
-   - Documentation → Documentation Hub Space
-   - Switch as needed for different aspects
-
-5. **Leverage Both Environments**:
-   - Use Space in browser for deep exploration and research
-   - Use Space via MCP in IDE for active development and iteration
-   - Each has its strengths!
-
-### 🎯 Challenge Exercise: Full Workflow Integration
-
-Put it all together with this comprehensive exercise:
-
-1. **In your IDE**, open `pixelperfect-gallery/src/app/upload/page.tsx`
-
-2. **Use your Security Space** to identify security improvements:
-   ```
-   Using my Security Assessment Space, what security enhancements should be made to this upload page?
-   ```
-
-3. **Implement one security improvement** suggested by Copilot
-
-4. **Use your Documentation Space** to document the change:
-   ```
-   Using my Documentation Hub Space, generate documentation for the security improvement I just implemented
-   ```
-
-5. **Create code comments** following the documentation Space's guidelines
-
-6. **Test your implementation** in the running application
-
-7. **Request a final review** from both Spaces:
-   ```
-   Using both my Security Assessment and Documentation Hub Spaces, review my changes for security compliance and documentation completeness
-   ```
-
-✅ **Success!** You've now integrated Copilot Spaces directly into your development workflow using GitHub MCP!
-
 ## 🏆 Exercise Wrap-up
 
 Excellent work! You've mastered GitHub Copilot Spaces:
@@ -523,28 +358,22 @@ Excellent work! You've mastered GitHub Copilot Spaces:
 - ✅ Set up a Documentation Hub Space with documentation templates
 - ✅ Added relevant context files and documentation to each Space
 - ✅ Worked within Spaces for focused, goal-oriented AI assistance
-- ✅ Accessed and used Spaces from your IDE via GitHub MCP
-- ✅ Combined Space expertise with active development workflow
 - ✅ Understood collaboration features and best practices
 - ✅ Learned to organize and manage multiple Spaces
 
 ### Reflection Questions:
 1. **How do Spaces differ from regular Copilot Chat in your workflow?**
 2. **What types of projects or tasks would benefit most from dedicated Spaces?**
-3. **How did accessing Spaces from your IDE via MCP change your development experience?**
-4. **What was different about the responses from your Security Space vs. Documentation Space?**
-5. **How might your team use Spaces for collaboration?**
-6. **What instructions and context were most effective in your Spaces?**
-7. **How would you organize Spaces for your current projects?**
+3. **What was different about the responses from your Security Space vs. Documentation Space?**
+4. **How might your team use Spaces for collaboration?**
+5. **What instructions and context were most effective in your Spaces?**
+6. **How would you organize Spaces for your current projects?**
 
 ### Key Takeaways:
 - Spaces provide persistent, focused AI assistance for complex projects
 - Each Space can have specialized instructions and curated context
 - Custom instructions and relevant source files dramatically improve AI responses
 - Different Spaces serve different purposes (security, docs, features, performance, etc.)
-- Spaces work both in the browser (for exploration) and IDE (for active development)
-- GitHub MCP integration brings Space expertise directly into your coding workflow
-- Combining Space context with current code enables powerful, context-aware assistance
 - Spaces enable better team collaboration and knowledge sharing
 - Spaces are particularly valuable for long-running, complex initiatives
 
