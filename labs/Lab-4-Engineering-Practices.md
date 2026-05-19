@@ -1,6 +1,6 @@
 # Exercise 4 - Engineering Practices and Copilot Instructions
 
-#### Duration: 40 minutes
+#### Duration: 55 minutes
 
 ## 🎯 Learning Objectives
 
