@@ -13,7 +13,6 @@ This glossary provides clear definitions and explanations for all GitHub Copilot
 - [Customization & Configuration](#customization--configuration)
 - [Cloud Agent & Autonomous Development](#cloud-agent--autonomous-development)
 - [GitHub Copilot Spaces](#github-copilot-spaces)
-- [Model Context Protocol (MCP)](#model-context-protocol-mcp)
 - [AI Models & Usage](#ai-models--usage)
 - [Development Tools & Features](#development-tools--features)
 - [Quality & Review](#quality--review)
@@ -79,7 +78,7 @@ Special prefixes that scope Copilot's responses to specific contexts or enable s
 **Examples**:
 - `@workspace` - Provides context about your entire workspace
 - `@terminal` - Help with terminal commands
-- `@github` - GitHub-specific operations (via MCP)
+- `@github` - GitHub-specific operations
 
 ---
 
@@ -299,54 +298,6 @@ Files, documentation, issues, or text content added to a Space to provide contex
 
 ---
 
-## Model Context Protocol (MCP)
-
-### Model Context Protocol (MCP)
-A standardized protocol that allows AI assistants like Copilot to connect to external services and data sources, expanding their knowledge and capabilities.
-
-**Purpose**: Integrate external systems (GitHub, Slack, databases, etc.)  
-**Official Site**: https://github.com/modelcontextprotocol  
-**Server List**: https://github.com/modelcontextprotocol/servers
-
-### MCP Server
-A service that implements the Model Context Protocol to expose data or functionality to AI assistants.
-
-**Examples**: GitHub MCP Server, Slack MCP, Figma MCP, Azure MCP  
-**Location**: Community list at https://github.com/modelcontextprotocol/servers
-
-### MCP Registry
-A centralized directory of available MCP servers that can be easily installed into your development environment.
-
-**Access**: 
-- **GitHub.com**: Navigate to https://github.com/mcp to browse the registry
-- **Community List**: Visit https://github.com/modelcontextprotocol/servers for community-maintained servers
-
-**Location**: https://github.com/mcp (GitHub's registry interface)  
-**Community List**: https://github.com/modelcontextprotocol/servers  
-**Purpose**: Discover and install MCP servers with one click
-
-### GitHub MCP Server
-An MCP server that connects Copilot to GitHub's data, enabling queries about repositories, issues, pull requests, and more through natural conversation.
-
-**Access**: 
-- **Installation**: Add to your MCP configuration file (`.vscode/mcp.json`) or install via VS Code MCP extension
-- **Usage**: Once configured, ask Copilot questions about Issues/PRs/Spaces/Etc.
-
-**Capabilities**: Query issues, search repositories, analyze PRs, access organization data  
-**Installation**: Via MCP Registry or manual configuration
-
-### MCP Configuration
-The setup file that defines which MCP servers are available to your IDE and how they should be configured.
-
-**Access**: 
-- **Repository Level**: Create or edit `.vscode/mcp.json` in your repository
-- **User Level**: VS Code → Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) → "Preferences: Open User Settings (JSON)" → Add MCP configuration
-
-**Location**: `.vscode/mcp.json` (repository) or VS Code settings.json (user)  
-**Format**: JSON configuration with server definitions
-
----
-
 ## AI Models & Usage
 
 ### AI Models
@@ -525,17 +476,6 @@ Directory containing custom agent definitions for autonomous task execution.
 **Format**: YAML with markdown instructions  
 **Naming**: `filename.agent.yml`  
 **Usage**: Select from agent dropdown or reference in assignments
-
-### `.vscode/mcp.json`
-Repository-level MCP server configuration file.
-
-**Access**: 
-- **Create/Edit**: In your IDE, create or open `.vscode/mcp.json` in the repository root
-- **Location**: Must be at the path `.vscode/mcp.json` (exact path required)
-
-**Format**: JSON  
-**Contains**: Server definitions and configurations  
-**Scope**: Single repository
 
 ### `next.config.ts`
 Configuration file for Next.js applications, defining build options, routing, and framework behavior.
