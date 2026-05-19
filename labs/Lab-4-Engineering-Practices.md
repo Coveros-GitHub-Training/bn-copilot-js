@@ -111,97 +111,46 @@ Once the debug panel opens, you can explore:
 - Review system prompts to understand what standards Copilot is following
 - Look at token usage to optimize your prompts for efficiency
 
-## 🎛️ Step 2: Personal Instructions and Custom Configuration
+## 🎛️ Step 2: Utilizing Custom Instructions
 
-> [!IMPORTANT]
-> Currently personal instructions are only supported for GitHub Copilot Chat in GitHub.com.
+Custom instructions are rules that apply to every Copilot interaction.
 
-Personal instructions define how Copilot behaves across all repositories you work on. They're powerful for maintaining consistent coding standards and preferences.
+### Step 2.1: Review Repository Instructions
 
-### Step 2.1: Configure Personal Instructions
+1. **Open** `.github/copilot-instructions.md` in this repository
 
-#### Why This Matters:
-- **Consistency**: Get similar code style across all your projects
-- **Efficiency**: Don't repeat common preferences in every chat
-- **Customization**: Tailor Copilot to your specific needs and workflows
+2. **Notice how it defines:**
+   - Project overview and architecture
+   - Component patterns
+   - Styling conventions
+   - Development workflow
 
-#### Access Personal Instructions
+3. **Understand how these instructions:**
+   - Automatically apply to all Copilot interactions
+   - Guide code generation to follow project patterns
+   - Maintain consistency across the codebase
 
-1. **Navigate to GitHub Copilot**: Go to [https://github.com/copilot](https://github.com/copilot)
+#### Example Instructions in This Repo:
 
-2. **Open settings**: Click **Your profile icon** in the bottom left of the screen
+The repository instructions file (copilot-instructions.md) includes:
+- Project structure overview
+- Component usage patterns
+- Technology stack information
+- Styling conventions
+- Best practices for this specific project
 
-3. **Open personal instructions**: Select **"Personal instructions"**
+These instructions help Copilot generate code that fits seamlessly into the existing codebase.
 
-4. **Review existing instructions** (if any are already configured)
+### Step 2.2: Auto-Generate Repository Instructions
 
-#### Create or Modify Personal Instructions
+Use the Copilot Chat "Generate Chat Instructions" feature to automatically create (or refine) the repository's `copilot-instructions.md`, then compare and improve it.
 
-**Add a new personal instruction** that you'd like to test for this class.
+1. Open Copilot Chat  
+2. Click the gear icon (Configure Chat) → choose **Generate Chat Instructions**
+3. Look through the changes that Copilot has suggested making to the instructions file
+4. Accept the changes that you think add value to the instructions, and `Undo` the ones that don't
 
-<details>
-  <summary>💡 Example Prompt</summary>
-
-  **For TypeScript Development:**
-  ```
-  Always use TypeScript with strict mode. Prefer interfaces over types for object definitions. 
-  Use descriptive variable names and include JSDoc comments for public functions.
-  ```
-
-  **For React/Next.js:**
-  ```
-  Follow React best practices: use functional components with hooks, avoid prop drilling, 
-  use proper TypeScript types for props and state. Follow Next.js 15 App Router patterns.
-  ```
-
-  **For Styling:**
-  ```
-  Use Tailwind CSS for all styling. Follow mobile-first responsive design. 
-  Include dark mode variants using Tailwind's dark: prefix. Keep components accessible.
-  ```
-
-  **For Code Quality:**
-  ```
-  Write clean, maintainable code with single responsibility principle. 
-  Include error handling and input validation. Add comments only when needed for clarity.
-  ```
-
-</details>
-
-**💡 Help Creating Personal Instructions:**
-If you're stuck, click the **lightbulb icon** in the bottom right of the textbox to insert a pre-built instruction template.
-
-#### Test Your Personal Instructions
-
-1. **After adding instructions**, stay on [github.com/copilot](https://github.com/copilot)
-
-2. **Ask Copilot to generate some code** in the Copilot Chat panel on github.com:
-   
-   Create a prompt asking Copilot to create a new component for displaying photo metadata. This will help you see how your personal instructions affect the generated code.
-
-> [!IMPORTANT]
-> Make sure that you have set the mode to **Ask** and select your **repository from the dropdown** in the Copilot Chat panel to ensure that the repository context is included in the prompt. 
->
-> This will allow you to see how your personal instructions interact with the repository context.
-   
-   <details>
-   <summary>💡 Example Prompt</summary>
-
-   ```
-   Create a new React component for displaying photo metadata using TypeScript
-   ```
-   </details>
-
-3. **Observe how the generated code** reflects your personal instructions
-
-4. **Experiment with different instructions** — edit your personal instructions, then ask the same question again to see how the output changes
-
-#### 🔍 Things to Explore:
-
-- How do personal instructions influence code style?
-- What coding standards are enforced?
-- Do instructions apply consistently across different prompt types?
-- How specific do instructions need to be to produce noticeable differences?
+> Tip: You should repeat this process routinely to ensure that the instructions always stay up to date with the codebase. This ensures that Copilot gets the best context possible when working within your code.
 
 ## 📊 Step 3: Managing Model Usage and Costs
 
@@ -296,83 +245,7 @@ Based on typical strengths (check current docs for specifics):
 - **Explanations**: Models with detailed communication
 - **Performance optimization**: Models with deep analysis
 
-## 📋 Step 4: Understanding Custom Instructions Hierarchy
-
-Custom instructions are rules that apply to every Copilot interaction. Which instructions are used depends on the context (personal, repository, or organization level).
-
-### Step 4.1: Instructions Hierarchy
-
-#### Hierarchy Levels:
-
-1. **Personal Instructions** (highest priority)
-   - Your individual preferences across all repos
-   - Set at: https://github.com/copilot
-
-2. **Repository Instructions** (medium priority)
-   - Project-specific requirements
-   - File: `.github/copilot-instructions.md`
-
-3. **Organization Instructions** (lowest priority)
-   - Company-wide standards
-   - Set by org admins
-
-#### ⚖️ Balancing Different Instruction Levels
-
-**Personal Instructions**: Your individual preferences across all repositories
-- How Copilot talks to you
-- Outlining your coding style
-- Comment and documentation preferences
-
-**Repository Instructions**: Project-specific requirements (in `.github/copilot-instructions.md`)
-- Project architecture patterns
-- Specific libraries or frameworks to use
-- Team coding standards
-
-**Priority Order:**
-1. Personal instructions (highest)
-2. Repository instructions
-3. Organization instructions (lowest)
-
-When instructions conflict, higher priority ones take precedence.
-
-### Step 4.2: Review Repository Instructions
-
-1. **Open** `.github/copilot-instructions.md` in this repository
-
-2. **Notice how it defines:**
-   - Project overview and architecture
-   - Component patterns
-   - Styling conventions
-   - Development workflow
-
-3. **Understand how these instructions:**
-   - Automatically apply to all Copilot interactions
-   - Guide code generation to follow project patterns
-   - Maintain consistency across the codebase
-
-#### Example Instructions in This Repo:
-
-The repository instructions file (copilot-instructions.md) includes:
-- Project structure overview
-- Component usage patterns
-- Technology stack information
-- Styling conventions
-- Best practices for this specific project
-
-These instructions help Copilot generate code that fits seamlessly into the existing codebase.
-
-### Step 4.3: Auto-Generate Repository Instructions
-
-Use the Copilot Chat "Generate Chat Instructions" feature to automatically create (or refine) the repository’s `copilot-instructions.md`, then compare and improve it.
-
-1. Open Copilot Chat  
-2. Click the gear icon (Configure Chat) → choose **Generate Chat Instructions**
-3. Look through the changes that Copilot has suggested making to the instructions file
-4. Accept the changes that you think add value to the instructions, and `Undo` the ones that don't
-
-> Tip: You should repeat this process routinely to ensure that the instructions always stay up to date with the codebase. This ensures that Copilot gets the best context possible when working within your code.
-
-## 💎 Step 5: Best Practices for Creating Effective Instruction Files
+## 💎 Step 4: Best Practices for Creating Effective Instruction Files
 
 Creating high-quality instruction files is essential for maximizing Copilot's effectiveness in production environments. Well-crafted instructions help teams maintain consistency, enforce standards, and guide AI-assisted development.
 
@@ -397,7 +270,52 @@ When creating instruction files for your projects, focus on these essential elem
 6. **Security Requirements**: Specify security practices that should be followed
 7. **Testing Standards**: Set expectations for test coverage and testing approaches
 8. **Performance Guidelines**: Include optimization patterns and best practices
-10. **Project-Specific Patterns**: Tailor instructions to your domain (e-commerce, dashboards, etc.)
+9. **Project-Specific Patterns**: Tailor instructions to your domain (e-commerce, recipes, etc.)
+
+## 📋 Step 5: Working with Agent Skills
+
+With a solid understanding of Custom Instructions established, let's turn our attention towards Agent Skills. Agent Skills are customizable, shareable, reusable directories containing tools to help Copilot complete specialized workflows dynamically.
+
+### Step 5.1: Reviewing Built-In Skills
+
+Before we begin crafting our own skills, let us take a look at those included by default within VS Code.
+
+#### Instructions
+
+1. **Inside Chat view, click the Configure Chat cogwheel to open up the Agent Customization editor**
+
+2. **Select the "Skills" tab**
+
+3. **If it is not expanded, click the "Built-In" section, then select "create-instructions"**
+
+4. **Consider the following:**
+   - What does this skill do?
+   - How might you use this for your team's work?
+   - What might the prompt or conversation have looked like that generated the instructions file you viewed in step 2.1?
+
+### Step 5.2: Creating your first Skill
+
+With an understanding of what a skill file generally might look like, we will now create our own with Copilot's help! If you are unsure of your syntactical options, don't be afraid to check out the documentation [here](https://code.visualstudio.com/docs/copilot/customization/agent-skills#_skillmd-file-format)!
+
+#### Instructions
+
+1. **Inside the Agent Customization editor, click "Skills" then select "create-skill"**
+
+2. **Take a moment to understand the contents of this built-in skill and what is required to utilize it**
+
+3. **Close the Agent Customization editor and return to Copilot Chat**
+
+4. **Inside your chat window, type `/create-skill` followed by a prompt detailing functionality that might be useful as a reusable skill**
+<details>
+   <summary>Fun Suggestion</summary>
+   `/create-skill Generate a skill that provides information about a randomly selected CWE entry.`
+</details>
+
+5. **With GitHub Copilot's help, iterate until you have a working Skill**
+
+6. **To verify the Skill works correctly, type `/{your skill's name}` and see if it is visible**
+
+7. **Create a prompt that utilizes your Skill, and see how Copilot adapts its answer to compensate** 
 
 ### 📖 Complete Guide
 
